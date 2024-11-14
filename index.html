@@ -5,153 +5,199 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>欢迎页面</title>
     <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-        body, html {
-            height: 100%;
-            overflow: hidden;
-            font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        #main-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-start; /* 从顶部开始对齐 */
-            height: 100%;
-            width: 100%;
-            padding: 20px;
-            overflow-y: auto;
-            scroll-behavior: smooth;
-        }
-        #welcome-info {
-            user-select: none;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            width: 90vw;
-            max-width: 400px;
-            padding: 20px;
-            border-radius: 12px;
-            background-color: #ffffff;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            outline: 1px solid #dcdcdc;
-            text-align: center;
-            margin-bottom: 10px;
-        }
-        .welcome-header {
-            font-size: 1.4rem;
-            font-weight: bold;
-            color: #ff4c4c;
-            margin-bottom: 10px;
-            display: flex;
-            align-items: center;
-        }
-        .intro {
-            font-size: 1rem;
-            margin-bottom: 15px;
-            text-align: left;
-            line-height: 1.8;
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-        }
-        .intro .item {
-            display: flex;
-            align-items: center;
-            margin-bottom: 6px;
-        }
-        .intro .icon {
-            margin-right: 8px;
-            font-size: 1.2rem;
-        }
-        .intro .highlight {
-            color: #007bff;
-            font-weight: bold;
-        }
-        .intro a {
-            color: #007bff;
-            text-decoration: none;
-        }
-        .intro a:hover {
-            text-decoration: underline;
-        }
-        .welcome-message {
-            background-color: #e7f3ff;
-            border: 1px solid #b0d4f1;
-            padding: 15px;
-            border-radius: 8px;
-            margin-top: 20px;
-            width: 100%;
-            box-sizing: border-box;
-        }
-        .welcome-message p {
-            margin: 8px 0;
-            line-height: 1.5;
-        }
-        .ip-address {
-            filter: blur(5px);
-            transition: filter 0.3s ease;
-        }
-        .ip-address:hover {
-            filter: blur(0);
-        }
-        .loading-spinner {
-            width: 40px;
-            height: 40px;
-            border: 4px solid rgba(0, 0, 0, 0.1);
-            border-radius: 50%;
-            border-top: 4px solid #4CAF50;
-            animation: spin 1s linear infinite;
-            margin-bottom: 10px;
-        }
-        .error-message {
-            color: #ff6565;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-        .error-icon {
-            font-size: 2rem;
-            margin-bottom: 10px;
-        }
-        #retry-button {
-            margin-top: 10px;
-            color: #4CAF50;
-            cursor: pointer;
-            font-weight: bold;
-        }
-        #retry-button:hover {
-            color: #388E3C;
-        }
-        .github-link {
-            font-size: 1.2rem;
-            color: #333;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-top: 20px;
-        }
-        .github-link img {
-            width: 20px;
-            height: 20px;
-            margin-right: 5px;
-        }
-        .github-link:hover {
-            color: #000;
-        }
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
+        /* Base Styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body, html {
+    height: 100%;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#main-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    height: 100%;
+    width: 100%;
+    padding: 20px;
+    overflow-y: auto;
+    scroll-behavior: smooth;
+}
+
+#welcome-info {
+    user-select: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 90vw;
+    max-width: 400px;
+    padding: 20px;
+    border-radius: 12px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    outline: 1px solid #dcdcdc;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.welcome-header {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #ff4c4c;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.intro {
+    font-size: 1rem;
+    margin-bottom: 15px;
+    text-align: left;
+    line-height: 1.8;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.intro .item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 6px;
+}
+
+.intro .icon {
+    margin-right: 8px;
+    font-size: 1.2rem;
+}
+
+.intro .highlight {
+    color: #007bff;
+    font-weight: bold;
+}
+
+.intro a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.intro a:hover {
+    text-decoration: underline;
+}
+
+.welcome-message {
+    background-color: #e7f3ff;
+    border: 1px solid #b0d4f1;
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 20px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.welcome-message p {
+    margin: 8px 0;
+    line-height: 1.5;
+}
+
+.ip-address {
+    filter: blur(5px);
+    transition: filter 0.3s ease;
+}
+
+.ip-address:hover {
+    filter: blur(0);
+}
+
+.loading-spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+    border-top: 4px solid #4CAF50;
+    animation: spin 1s linear infinite;
+    margin-bottom: 10px;
+}
+
+.error-message {
+    color: #ff6565;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.error-icon {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+#retry-button {
+    margin-top: 10px;
+    color: #4CAF50;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+#retry-button:hover {
+    color: #388E3C;
+}
+
+.github-link {
+    font-size: 1.2rem;
+    color: #333;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.github-link img {
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+}
+
+.github-link:hover {
+    color: #000;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Responsive Design for Smaller Screens */
+@media (max-width: 400px) {
+    .welcome-header {
+        font-size: 1.2rem;
+    }
+    .intro {
+        font-size: 0.9rem;
+        margin-bottom: 10px;
+    }
+    .welcome-message {
+        padding: 10px;
+        font-size: 0.9rem;
+    }
+    .github-link {
+        font-size: 1rem;
+    }
+    #main-container {
+        padding: 10px;
+    }
+}
+
     </style>
 </head>
 <body>
