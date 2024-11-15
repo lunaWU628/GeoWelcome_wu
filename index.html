@@ -111,26 +111,39 @@
             animation: spin 1s linear infinite;
             margin-bottom: 10px;
         }
-        .error-message {
-            color: #ff6565;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-        .error-icon {
-            font-size: 2rem;
-            margin-bottom: 10px;
-        }
-        #retry-button {
-            margin-top: 10px;
-            color: #4CAF50;
-            cursor: pointer;
-            font-weight: bold;
-        }
-        #retry-button:hover {
-            color: #388E3C;
-        }
+        /* 错误信息样式 */
+.error-message {
+    color: #ff6565;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.error-icon {
+    font-size: 6vw; /* 设置为视口单位大小 */
+    margin-bottom: 10px;
+}
+
+#error-message {
+    font-size: 4vw; /* 错误信息字体 */
+    margin-bottom: 15px;
+}
+
+#retry-button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 3vw;
+    cursor: pointer;
+}
+
+#retry-button:hover {
+    background-color: #388E3C;
+}
+
         .github-link {
             font-size: 1.2rem;
             color: #333;
@@ -252,10 +265,18 @@
             document.querySelector('.welcome-message').innerHTML = `
                 <div class="error-message">
                     <div class="error-icon">😕</div>
-                    <p>${message}</p>
+                    <p id="error-message">${message}</p>
+                    <button id="retry-button">重试</button>
                 </div>
             `;
+
+            // 给重试按钮绑定点击事件
+            document.getElementById('retry-button').addEventListener('click', () => {
+                document.getElementById('loading-spinner').style.display = 'block';
+                fetchIpInfo(); // 重新发起请求
+            });
         };
+
 
         const getTimeGreeting = () => {
             const hour = new Date().getHours();
