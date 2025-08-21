@@ -36,7 +36,7 @@ GeoWelcome 是一个动态个性化欢迎页面，通过访问者的 IP 地址�
 
 GeoWelcome 使用外部服务获取访客的 IP 地址和地理位置。您需要在以下网站申请 API 密钥：
 
-- 前往 [https://api.76.al/](https://api.76.al/) 注册并申请一个 API 密钥。
+- 前往 [https://api.nsmao.net/](https://api.nsmao.net/) 注册并申请一个 API 密钥。
 - 将获得的 API 密钥配置到项目的 `CONFIG` 对象中。
 
 ### 2. 配置 `CONFIG.js` 文件
@@ -60,7 +60,7 @@ const CONFIG = {
 - **BLOGGER_NAME**：这里是博主的名字，您可以修改为您自己的名字或昵称。
 - **EMAIL**：博主的联系邮箱链接。点击页面中的“发送邮件”时会自动打开邮件客户端。请将 `mailto:` 后面的邮箱地址替换为您的邮箱地址。
 - **GITHUB_URL**：博主的 GitHub 链接。请将其替换为您的个人 GitHub 页面链接。
-- **API_KEY**：您从 [https://api.76.al/](https://api.76.al/) 申请到的 API 密钥，请粘贴到这里。
+- **API_KEY**：您从 [https://api.nsmao.net/](https://api.nsmao.net/) 申请到的 API 密钥，请粘贴到这里。
 - **BLOG_LOCATION**：博主的地理位置（经纬度）。您可以使用 [百度地图](https://map.baidu.com/) 或 [Google Maps](https://www.google.com/maps) 查找您的具体经纬度，填入 `lng`（经度）和 `lat`（纬度）。
 - **CACHE_DURATION**：这是 API 数据的缓存时间，单位为毫秒。默认设置为 1 小时，您可以根据需要修改。
 - **HOME_PAGE_ONLY**：如果您只希望在首页显示欢迎信息，设置为 `true`；如果希望在所有页面显示，设置为 `false`。
